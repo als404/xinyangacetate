@@ -1,0 +1,19 @@
+/**
+* шаблон для страницы с обычным текстом
+* icon = fa-file-word
+*/
+
+{extends 'file:templates/base.tpl'}
+{block 'content'}
+	{include 'file:chunks/page_title.tpl'}
+<section class="item__wrapper pb-4">
+	<div class="container">
+		<h1 class="mb-4">{$_modx->resource.pagetitle}</h1>
+	{if $_modx->resource.content?}
+		<div class="text">
+		{$_modx->resource.content}
+		</div>
+	{/if}
+	</div>
+</section>
+{/block}

@@ -1,0 +1,5 @@
+/**
+* шаблон для страницы О компании
+* icon = fa-building
+*/
+{include 'file:templates/about.tpl'}

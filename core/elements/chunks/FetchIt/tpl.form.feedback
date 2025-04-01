@@ -1,0 +1,73 @@
+<form 
+    action="{$_modx->makeUrl($_modx->resource.id, '', '', 'full')}" 
+    id="contact__form" 
+    method="post" 
+    class="php-email-form"
+    name="contactus"
+    data-fetchit="*"
+    data-aos="fade-up"
+    data-aos-delay="200">
+    <div class="form-group is_fn">
+        <input type="text" name="firstName" class="form-control" placeholder="Name" autocomplete="nope">
+        <span class="error_msg">{$fi.error.firstName}</span>
+    </div>
+	<div class="row gy-4">
+
+		<div class="col-md-6">
+			<input 
+				type="text" 
+				name="name" 
+				class="form-control" 
+				placeholder="{'site.form_placeholder_name' | lexicon}"
+				value="{$fi.name}" 
+				autocomplete="name">
+			<span class="error_msg" data-error="name">{$fi.error.name}</span>
+		</div>
+
+		<div class="col-md-6 ">
+			<input 
+				type="email" 
+				class="form-control" 
+				name="email" 
+				placeholder="{'site.form_placeholder_email' | lexicon}"
+				autocomplete="email"
+				value="{$fi.email}">
+			<span class="error_msg" data-error="email">{$fi.error.email}</span>
+		</div>
+
+		<div class="col-md-12">
+			<input 
+				type="text" 
+				class="form-control" 
+				name="subject" 
+				placeholder="{'site.form_placeholder_subject' | lexicon}"
+				autocomplete="off"
+				value="{$fi.subject}">
+			<span class="error_msg" data-error="subject">{$fi.error.subject}</span>
+		</div>
+
+		<div class="col-md-12">
+			<textarea 
+				class="form-control" 
+				name="message" 
+				rows="6" 
+				placeholder="{'site.form_placeholder_message' | lexicon}">{$fi.message}</textarea>
+			<span class="error_msg" data-error="message">{$fi.error.message}</span>
+		</div>
+		<div class="form-group is_fn">
+        <input type="text" name="workemail" class="form-control" placeholder="Work email" autocomplete="nope">
+        <span class="error_msg">{$fi.error.workemail}</span>
+    </div>
+
+		<div class="col-md-12 text-center">
+			<div class="sent-message response-msg">
+				<div class="loading">{'site.form_loading' | lexicon}</div>
+				{$fi.validation_error_message}
+				{$fi.successMessage}
+			</div>
+		
+			<button type="submit" name="contactus">{'site.send_btn' | lexicon}</button>
+		</div>
+
+	</div>
+</form>

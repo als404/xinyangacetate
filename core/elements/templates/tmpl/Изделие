@@ -1,0 +1,5 @@
+/**
+* шаблон для страницы с товаром
+* icon = fa-receipt
+*/
+{include 'file:templates/catalog_item.tpl'}

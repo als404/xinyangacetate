@@ -1,0 +1,5 @@
+/**
+* шаблон для страницы с контактами
+* icon = fa-address-book
+*/
+{include 'file:templates/contacts.tpl'}

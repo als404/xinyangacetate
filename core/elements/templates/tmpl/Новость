@@ -1,0 +1,5 @@
+/**
+* шаблон для страницы с новостью или статьей
+* icon = fa-comment-dots
+*/
+{include 'file:templates/news_item.tpl'}

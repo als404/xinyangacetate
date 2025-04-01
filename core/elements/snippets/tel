@@ -1,0 +1,8 @@
+<?php
+/* fenom 
+<a href="tel:8800260000">8(800)260-00-00</a>
+<a href="tel:{$_modx->config.phone | tel}">{$_modx->config.phone}</a> 
+*/
+$input = preg_replace('/\D/', '', $input);
+
+return $input;

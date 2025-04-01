@@ -1,0 +1,14 @@
+<?php
+/**
+* $_modx->runSnippet('getBabelId', ['id'=>11, 'key'=>$_modx->config.cultureKey])
+*/
+
+if ($key != 'ru'){
+    $output = $modx->runSnippet('BabelTranslation', array(
+        'resourceId' => $id, 
+        'cultureKey' => $key,
+    ));
+} else {
+    $output =  $id;
+}
+return $output;

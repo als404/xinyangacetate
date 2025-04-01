@@ -1,0 +1,14 @@
+<?php
+/**
+*   $_modx->runSnippet("!getBabelIdStr", ['str'=>'top_menu' | option, 'key'=>$_modx->config.cultureKey]
+*/
+if (isset($str) && $key != 'ru') {
+    $arr = explode(',', $str);
+    foreach ($arr as $k => $v) {
+        $itemArr[$k] = $modx->runSnippet('getBabelId', array('id'=>$v, 'key'=>$key));
+    }
+    $output = implode(',', $itemArr);
+} else {
+    $output = $str;
+}
+return $output;

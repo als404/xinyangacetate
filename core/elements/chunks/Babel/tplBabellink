@@ -1,0 +1,6 @@
+<li class="borderLeft">
+    <a href="[[+url]]" class="[[+cultureKey]][[+active:notempty=` [[+active]]`]]">
+        <!--[[+language]]-->
+        [[%babel.language_[[+cultureKey]]? &topic=`default` &namespace=`babel`]]
+    </a>
+</li>

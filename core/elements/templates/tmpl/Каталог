@@ -1,0 +1,5 @@
+/**
+* шаблон для страницы с каталогом
+* icon = fa-folder
+*/
+{include 'file:templates/catalog.tpl'}

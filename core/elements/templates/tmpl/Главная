@@ -1,0 +1,5 @@
+/**
+* шаблон для главной страницы
+* icon = fa-home
+*/
+{include 'file:templates/index.tpl'}

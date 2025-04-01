@@ -1,0 +1,5 @@
+/*
+* шаблон для страницы с новостями
+* icon = fa-newspaper
+*/
+{include 'file:templates/news.tpl'}
