@@ -16,7 +16,7 @@
     "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --heading-font: "Raleway", sans-serif;
-  --nav-font: "Poppins", sans-serif;
+  --nav-font: "Montserrat", sans-serif;
 }
 
 /* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
@@ -91,6 +91,10 @@ h6 {
 
 /* PHP Email Form Messages
 ------------------------------*/
+.is_fn {
+  position: absolute !important;
+  left: -9999px;
+}
 .php-email-form .error-message {
   display: none;
   background: #df1529;
@@ -210,7 +214,7 @@ h6 {
 # Navigation Menu
 --------------------------------------------------------------*/
 /* Navmenu - Desktop */
-@media (min-width: 1200px) {
+@media (min-width: 992px) {
   .navmenu {
     padding: 0;
   }
@@ -226,7 +230,7 @@ h6 {
   .navmenu li {
     position: relative;
   }
-
+  .navmenu .active,
   .navmenu a,
   .navmenu a:focus {
     color: var(--nav-color);
@@ -258,7 +262,16 @@ h6 {
   .navmenu .active:focus {
     color: var(--nav-hover-color);
   }
+  
+  .navmenu li.borderLeft:nth-last-child(n + 2) {
+  	border-left: solid 1px var(--nav-color);
+  }
 
+	 .babel_active {
+	 opacity: 0.5;
+	 pointer-events: none;
+	 cursor: default; }
+ 
   .navmenu .dropdown ul {
     margin: 0;
     padding: 10px 0;
@@ -317,7 +330,7 @@ h6 {
 }
 
 /* Navmenu - Mobile */
-@media (max-width: 1199px) {
+@media (max-width: 991px) {
   .mobile-nav-toggle {
     color: var(--nav-color);
     font-size: 28px;
@@ -347,6 +360,7 @@ h6 {
     box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
   }
 
+  .navmenu li.active,
   .navmenu a,
   .navmenu a:focus {
     color: var(--nav-dropdown-color);
@@ -381,7 +395,7 @@ h6 {
     background-color: var(--accent-color);
     color: var(--contrast-color);
   }
-
+  .navmenu li.active,
   .navmenu a:hover,
   .navmenu .active,
   .navmenu .active:focus {
@@ -393,6 +407,10 @@ h6 {
     background-color: var(--accent-color);
     color: var(--contrast-color);
     transform: rotate(180deg);
+  }
+
+  .navmenu .borderLeft {
+    border-left: none;
   }
 
   .navmenu .dropdown ul {
@@ -546,6 +564,10 @@ h6 {
 
 .footer .footer-contact p {
   margin-bottom: 5px;
+}
+.footer .footer-contact a {
+  color: var(--nav-dropdown-background-color);
+  font-weight: 700;
 }
 
 .footer .footer-newsletter .newsletter-form {
@@ -775,6 +797,11 @@ section,
   text-transform: uppercase;
   font-family: var(--heading-font);
 }
+@media (max-width: 768px) {
+  .section-title p {
+    font-size: 18px;
+  }
+}
 
 /*--------------------------------------------------------------
 # Hero Section
@@ -839,6 +866,7 @@ section,
   margin-bottom: 30px;
   font-size: 48px;
   font-weight: 700;
+  text-shadow: 1px 1px 3px #000;
   animation: fadeInDown 1s both;
 }
 
@@ -850,6 +878,13 @@ section,
 
 .hero p {
   animation: fadeInDown 1s both 0.2s;
+  font-size: 22px;
+  text-shadow: 1px 1px 3px #000;
+}
+@media (max-width: 768px) {
+  .hero p {
+    font-size: 18px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -960,6 +995,7 @@ section,
   color: var(--accent-color);
 }
 
+.come-back .read-more,
 .about .read-more {
   background: var(--accent-color);
   color: var(--contrast-color);
@@ -974,22 +1010,31 @@ section,
   align-items: center;
   justify-content: center;
 }
-
+.come-back .read-more i,
 .about .read-more i {
   font-size: 18px;
   margin-left: 5px;
   line-height: 0;
   transition: 0.3s;
 }
-
+.come-back .read-more:hover,
 .about .read-more:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
-
 .about .read-more:hover i {
   transform: translate(5px, 0);
 }
 
+.come-back .read-more {
+  margin-top: 20px;
+  border: none;
+}
+.come-back .read-more i {
+  margin-right: 5px;
+}
+.come-back .read-more:hover i {
+  transform: translate(-5px, 0);
+}
 /*--------------------------------------------------------------
 # Clients Section
 --------------------------------------------------------------*/
@@ -1366,6 +1411,76 @@ section,
 }
 .catalog .catalog-item .title a:hover {
   color: var(--accent-color);
+}
+
+.catalog .btn-get-started {
+  color: var(--contrast-color);
+  background: var(--accent-color);
+  font-family: var(--heading-font);
+  font-weight: 500;
+  font-size: 15px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 8px 32px;
+  border-radius: 4px;
+  transition: 0.5s;
+  margin: 10px;
+  animation: fadeInUp 1s both 0.4s;
+}
+
+.catalog .btn-get-started:hover {
+  background: color-mix(in srgb, var(--accent-color), transparent 20%);
+}
+.catalog.catalog__list-item .catalog-item {
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.catalog.catalog__list-item .title a {
+  color: var(--default-color);
+}
+/* .catalog.catalog__list-item .catalog-item:hover {
+  border-color: var(--accent-color);
+} */
+
+.item__wrapper table {
+  border: 1px solid var(--bs-gray-100);
+  table-layout: fixed;
+  width: 100%;
+  margin-bottom: 20px;
+}
+.item__wrapper table th {
+  font-weight: bold;
+  padding: 5px;
+  background: var(--bs-gray-200);
+  border: 1px solid var(--bs-gray-300);
+}
+.item__wrapper table td {
+  padding: 5px 10px;
+  border: 1px solid var(--bs-gray-200);
+  text-align: left;
+}
+.item__wrapper table tbody tr:nth-child(odd) {
+  background: var(--bs-white);
+}
+.item__wrapper table tbody tr:nth-child(even) {
+  background: var(--bs-gray-100);
+}
+.item__wrapper .item__img {
+  margin-left: 15px;
+  margin-bottom: 15px;
+}
+.item__wrapper .item__img img {
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.3);
+  /* border: solid 5px var(--bs-gray-100); */
+  border-radius: 10px;
+  display: block;
+  max-width: 300px;
+  height: auto;
+}
+@media (max-width: 768px) {
+  .item__wrapper .item__img img {
+    margin: 0 auto;
+  }
 }
 /*--------------------------------------------------------------
 # Team Section
@@ -1867,43 +1982,43 @@ section,
 }
 
 /*--------------------------------------------------------------
-# Blog Posts Section
+# News Posts Section
 --------------------------------------------------------------*/
-.blog-posts article {
+.news-posts article {
   background-color: var(--surface-color);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   padding: 30px;
   height: 100%;
 }
 
-.blog-posts .post-img {
+.news-posts .post-img {
   max-height: 440px;
   margin: -30px -30px 0 -30px;
   overflow: hidden;
 }
 
-.blog-posts .title {
+.news-posts .title {
   font-size: 24px;
   font-weight: 700;
   padding: 0;
   margin: 30px 0;
 }
 
-.blog-posts .title a {
+.news-posts .title a {
   color: var(--heading-color);
   transition: 0.3s;
 }
 
-.blog-posts .title a:hover {
+.news-posts .title a:hover {
   color: var(--accent-color);
 }
 
-.blog-posts .meta-top {
+.news-posts .meta-top {
   margin-top: 20px;
   color: color-mix(in srgb, var(--default-color), transparent 40%);
 }
 
-.blog-posts .meta-top ul {
+.news-posts .meta-top ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -1912,33 +2027,33 @@ section,
   margin: 0;
 }
 
-.blog-posts .meta-top ul li + li {
+.news-posts .meta-top ul li + li {
   padding-left: 20px;
 }
 
-.blog-posts .meta-top i {
+.news-posts .meta-top i {
   font-size: 16px;
   margin-right: 8px;
   line-height: 0;
   color: color-mix(in srgb, var(--default-color), transparent 20%);
 }
 
-.blog-posts .meta-top a {
+.news-posts .meta-top a {
   color: color-mix(in srgb, var(--default-color), transparent 40%);
   font-size: 14px;
   display: inline-block;
   line-height: 1;
 }
 
-.blog-posts .content {
+.news-posts .content {
   margin-top: 20px;
 }
 
-.blog-posts .content .read-more {
+.news-posts .content .read-more {
   text-align: right;
 }
 
-.blog-posts .content .read-more a {
+.news-posts .content .read-more a {
   background: var(--accent-color);
   color: var(--contrast-color);
   display: inline-block;
@@ -1948,31 +2063,30 @@ section,
   border-radius: 4px;
 }
 
-.blog-posts .content .read-more a:hover {
+.news-posts .content .read-more a:hover {
   background: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
-
 /*--------------------------------------------------------------
-# Blog Pagination Section
+# Pagination Section
 --------------------------------------------------------------*/
-.blog-pagination {
+.pagination {
   padding-top: 0;
   color: color-mix(in srgb, var(--default-color), transparent 40%);
 }
 
-.blog-pagination ul {
+.pagination ul {
   display: flex;
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-.blog-pagination li {
+.pagination li {
   margin: 0 5px;
   transition: 0.3s;
 }
 
-.blog-pagination li a {
+.pagination li a {
   color: color-mix(in srgb, var(--default-color), transparent 40%);
   padding: 7px 16px;
   display: flex;
@@ -1980,36 +2094,36 @@ section,
   justify-content: center;
 }
 
-.blog-pagination li a.active,
-.blog-pagination li a:hover {
+.pagination li a.active,
+.pagination li a:hover {
   background: var(--accent-color);
   color: var(--contrast-color);
 }
 
-.blog-pagination li a.active a,
-.blog-pagination li a:hover a {
+.pagination li a.active a,
+.pagination li a:hover a {
   color: var(--contrast-color);
 }
 
 /*--------------------------------------------------------------
-# Blog Details Section
+# News Details Section
 --------------------------------------------------------------*/
-.blog-details {
+.news-details {
   padding-bottom: 30px;
 }
 
-.blog-details .article {
+.news-details .article {
   background-color: var(--surface-color);
   padding: 30px;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
-.blog-details .post-img {
+.news-details .post-img {
   margin: -30px -30px 20px -30px;
   overflow: hidden;
 }
 
-.blog-details .title {
+.news-details .title {
   color: var(--heading-color);
   font-size: 28px;
   font-weight: 700;
@@ -2017,17 +2131,17 @@ section,
   margin: 30px 0;
 }
 
-.blog-details .content {
+.news-details .content {
   margin-top: 20px;
 }
 
-.blog-details .content h3 {
+.news-details .content h3 {
   font-size: 22px;
   margin-top: 30px;
   font-weight: bold;
 }
 
-.blog-details .content blockquote {
+.news-details .content blockquote {
   overflow: hidden;
   background-color: color-mix(in srgb, var(--default-color), transparent 95%);
   padding: 60px;
@@ -2036,7 +2150,7 @@ section,
   margin: 20px 0;
 }
 
-.blog-details .content blockquote p {
+.news-details .content blockquote p {
   color: var(--default-color);
   line-height: 1.6;
   margin-bottom: 0;
@@ -2045,7 +2159,7 @@ section,
   font-size: 22px;
 }
 
-.blog-details .content blockquote:after {
+.news-details .content blockquote:after {
   content: "";
   position: absolute;
   left: 0;
@@ -2057,12 +2171,12 @@ section,
   margin-bottom: 20px;
 }
 
-.blog-details .meta-top {
+.news-details .meta-top {
   margin-top: 20px;
   color: color-mix(in srgb, var(--default-color), transparent 40%);
 }
 
-.blog-details .meta-top ul {
+.news-details .meta-top ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
@@ -2071,218 +2185,22 @@ section,
   margin: 0;
 }
 
-.blog-details .meta-top ul li + li {
+.news-details .meta-top ul li + li {
   padding-left: 20px;
 }
 
-.blog-details .meta-top i {
+.news-details .meta-top i {
   font-size: 16px;
   margin-right: 8px;
   line-height: 0;
   color: color-mix(in srgb, var(--default-color), transparent 40%);
 }
 
-.blog-details .meta-top a {
+.news-details .meta-top a {
   color: color-mix(in srgb, var(--default-color), transparent 40%);
   font-size: 14px;
   display: inline-block;
   line-height: 1;
-}
-
-.blog-details .meta-bottom {
-  padding-top: 10px;
-  border-top: 1px solid
-    color-mix(in srgb, var(--default-color), transparent 90%);
-}
-
-.blog-details .meta-bottom i {
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  display: inline;
-}
-
-.blog-details .meta-bottom a {
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  transition: 0.3s;
-}
-
-.blog-details .meta-bottom a:hover {
-  color: var(--accent-color);
-}
-
-.blog-details .meta-bottom .cats {
-  list-style: none;
-  display: inline;
-  padding: 0 20px 0 0;
-  font-size: 14px;
-}
-
-.blog-details .meta-bottom .cats li {
-  display: inline-block;
-}
-
-.blog-details .meta-bottom .tags {
-  list-style: none;
-  display: inline;
-  padding: 0;
-  font-size: 14px;
-}
-
-.blog-details .meta-bottom .tags li {
-  display: inline-block;
-}
-
-.blog-details .meta-bottom .tags li + li::before {
-  padding-right: 6px;
-  color: var(--default-color);
-  content: ",";
-}
-
-.blog-details .meta-bottom .share {
-  font-size: 16px;
-}
-
-.blog-details .meta-bottom .share i {
-  padding-left: 5px;
-}
-
-/*--------------------------------------------------------------
-# Blog Comments Section
---------------------------------------------------------------*/
-.blog-comments {
-  padding: 10px 0;
-}
-
-.blog-comments .comments-count {
-  font-weight: bold;
-}
-
-.blog-comments .comment {
-  margin-top: 30px;
-  position: relative;
-}
-
-.blog-comments .comment .comment-img {
-  margin-right: 14px;
-}
-
-.blog-comments .comment .comment-img img {
-  width: 60px;
-}
-
-.blog-comments .comment h5 {
-  font-size: 16px;
-  margin-bottom: 2px;
-}
-
-.blog-comments .comment h5 a {
-  font-weight: bold;
-  color: var(--default-color);
-  transition: 0.3s;
-}
-
-.blog-comments .comment h5 a:hover {
-  color: var(--accent-color);
-}
-
-.blog-comments .comment h5 .reply {
-  padding-left: 10px;
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-}
-
-.blog-comments .comment h5 .reply i {
-  font-size: 20px;
-}
-
-.blog-comments .comment time {
-  display: block;
-  font-size: 14px;
-  color: color-mix(in srgb, var(--default-color), transparent 40%);
-  margin-bottom: 5px;
-}
-
-.blog-comments .comment.comment-reply {
-  padding-left: 40px;
-}
-
-/*--------------------------------------------------------------
-# Comment Form Section
---------------------------------------------------------------*/
-.comment-form {
-  padding-top: 10px;
-}
-
-.comment-form form {
-  background-color: var(--surface-color);
-  margin-top: 30px;
-  padding: 30px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-}
-
-.comment-form form h4 {
-  font-weight: bold;
-  font-size: 22px;
-}
-
-.comment-form form p {
-  font-size: 14px;
-}
-
-.comment-form form input {
-  background-color: var(--surface-color);
-  color: var(--default-color);
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
-  font-size: 14px;
-  border-radius: 4px;
-  padding: 10px 10px;
-}
-
-.comment-form form input:focus {
-  color: var(--default-color);
-  background-color: var(--surface-color);
-  box-shadow: none;
-  border-color: var(--accent-color);
-}
-
-.comment-form form input::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-}
-
-.comment-form form textarea {
-  background-color: var(--surface-color);
-  color: var(--default-color);
-  border: 1px solid color-mix(in srgb, var(--default-color), transparent 70%);
-  border-radius: 4px;
-  padding: 10px 10px;
-  font-size: 14px;
-  height: 120px;
-}
-
-.comment-form form textarea:focus {
-  color: var(--default-color);
-  box-shadow: none;
-  border-color: var(--accent-color);
-  background-color: var(--surface-color);
-}
-
-.comment-form form textarea::placeholder {
-  color: color-mix(in srgb, var(--default-color), transparent 50%);
-}
-
-.comment-form form .form-group {
-  margin-bottom: 25px;
-}
-
-.comment-form form .btn-primary {
-  border-radius: 4px;
-  padding: 10px 20px;
-  border: 0;
-  background-color: var(--accent-color);
-  color: var(--contrast-color);
-}
-
-.comment-form form .btn-primary:hover {
-  color: var(--contrast-color);
-  background-color: color-mix(in srgb, var(--accent-color), transparent 20%);
 }
 
 /*--------------------------------------------------------------
@@ -2367,9 +2285,12 @@ section,
 /*--------------------------------------------------------------
 # Starter Section Section
 --------------------------------------------------------------*/
-.starter-section {
-  /* Add your styles here */
+/*
+ .starter-section { */
+/* Add your styles here */
+/* 
 }
+*/
 
 /*--------------------------------------------------------------
 # Widgets
